@@ -41,7 +41,7 @@ class CompanyDetail extends React.Component {
     this.props.fetchCompany(REQUEST_URL).then(
       (res) => {
         that.setState({
-          dataSource: ds.cloneWithRows(that.props.movies),
+          dataSource: ds.cloneWithRows(that.props.movies.slice(0, 5)),
           loading: false
         });
       }
@@ -61,13 +61,17 @@ class CompanyDetail extends React.Component {
         style={[styles.centering, {height: 80}]}
         size="large"
       />
-      <Image source={img} style={styles.image}/>
-        <Text>
-          {movie.title}
-        </Text>
-        <Text>
-          {movie.year}
-        </Text>
+        <View style={styles.movieItem}>
+          <Image source={img} style={styles.image}/>
+          <View style={styles.titleAndYear}>
+            <Text>
+              {movie.title}
+            </Text>
+            <Text>
+              {movie.year}
+            </Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -77,6 +81,7 @@ class CompanyDetail extends React.Component {
        <ListView
        dataSource={this.state.dataSource}
        renderRow={this.renderRow.bind(this)}
+       style={styles.list}
        />
      );
  }
@@ -91,8 +96,8 @@ const styles = StyleSheet.create({
   },
   image: {
     padding: 10,
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
   },
   infoline: {
     flexDirection: 'row',
@@ -102,12 +107,25 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginLeft: 20
   },
-
+  movieItem: {
+    flex: 1,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  titleAndYear: {
+    width: 100,
+    paddingLeft: 20,
+    flexDirection: 'column',
+  },
   lineLabel: {
     fontSize: 14
   },
   lineValue: {
     fontSize: 20
+  },
+  list: {
+    alignSelf: 'stretch',
   }
 });
 
