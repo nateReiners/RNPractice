@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
 import CompanyDetail from './CompanyDetail';
-import { fetchCompany } from '../../actions/companyActions';
+import { fetchCompany, fetchCompanies } from '../../actions/companyActions';
 
-
-const mapStateToProps = state => ({
-  company: state.company
+const mapStateToProps = ({ company }) => ({
+  movies: company.movies || [{title: "MOCK NO movies"}],
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCompany: (id) => dispatch(fetchCompany(id)),
+  fetchCompany: (url) => dispatch(fetchCompany(url)),
 });
 
 export default connect(

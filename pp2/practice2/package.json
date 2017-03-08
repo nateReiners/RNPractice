@@ -10,6 +10,7 @@
     "lodash": "^4.17.4",
     "react": "15.4.2",
     "react-native": "0.42.0",
+    "react-native-loading-spinner-overlay": "^0.4.1",
     "react-native-viewport-units": "0.0.5",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",

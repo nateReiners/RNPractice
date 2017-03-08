@@ -23,6 +23,7 @@ export const fetchCompanies = () => dispatch => {
 };
 
 export const fetchCompany = (id) => dispatch => {
+  console.log("hit fetchcompany action");
   return companyAPI.fetchCompany(id).then(
     (resp) => resp.json()).then( json => dispatch(receiveCompany(json)));
 };

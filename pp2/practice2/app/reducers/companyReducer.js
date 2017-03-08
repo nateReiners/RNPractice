@@ -3,19 +3,20 @@ import {
   RECEIVE_COMPANY
 } from '../actions/companyActions';
 
-const _nullCompany = {
-  name: null,
-  price: null,
-  symbol: null,
-  price_percent_change: null,
-  history:[[0,0]]
+import { merge } from 'lodash';
+
+const initialState = {
+    movies: [],
 };
 
-const companyReducer = (state = _nullCompany, action) => {
+const companyReducer = (state = initialState, action) => {
+  console.log(state);
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_COMPANY:
-      return action.company;
+      let newState = merge({}, state, { movies: action.company.movies });
+      console.log(newState);
+      return newState;
     default:
       return state;
   }

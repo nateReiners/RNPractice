@@ -1,5 +1,5 @@
 export const fetchCompanies = () => (
-  fetch('http://localhost:3000/api/companies', {
+  fetch(REQUEST_URL, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -8,8 +8,8 @@ export const fetchCompanies = () => (
   })
 );
 
-export const fetchCompany = (id) => (
-  fetch(`http://localhost:3000/api/companies/${id}`, {
+export const fetchCompany = (url) => (
+  fetch(url, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',

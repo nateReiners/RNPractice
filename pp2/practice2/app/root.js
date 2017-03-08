@@ -5,6 +5,11 @@ import {
   StyleSheet
 } from 'react-native';
 
+import fetchCompany from './actions/companyActions';
+
+window.fetchCompany = fetchCompany;
+window.configureStore = configureStore;
+
 import HomeScene from './scenes/home_scene.js';
 import DetailScene from './scenes/detail_scene.js';
 import configureStore from './store';
@@ -26,7 +31,6 @@ export default class Root extends Component {
 
   render() {
     let store = configureStore();
-
     return (
       <Provider store={store}>
         <Navigator

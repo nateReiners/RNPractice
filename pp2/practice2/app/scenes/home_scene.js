@@ -17,6 +17,7 @@ export default class HomeScene extends Component {
   }
 
   createDetailScene() {
+    console.log("hit createDetailScene");
     this.props.navigator.push({ name: "DetailScene" });
   }
 
@@ -35,11 +36,6 @@ export default class HomeScene extends Component {
             Go to detail scene!
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.fetch}>
-          <Text>
-            Fetch Data!
-          </Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -55,8 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'skyblue',
   },
   nav: {
-    height: 50,
-    backgroundColor: 'steelblue',
+    padding: 20,
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch'
